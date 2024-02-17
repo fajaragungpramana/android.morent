@@ -3,6 +3,7 @@ package com.github.fajaragungpramana.morent.module.main
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.fajaragungpramana.morent.core.app.AppResult
 import com.github.fajaragungpramana.morent.core.domain.house.HouseInteractor
+import com.github.fajaragungpramana.morent.core.domain.house.model.House
 import com.github.fajaragungpramana.morent.core.domain.user.UserInteractor
 import com.github.fajaragungpramana.morent.core.domain.user.model.User
 import kotlinx.coroutines.Dispatchers
@@ -85,6 +86,26 @@ class MainViewModelTest {
         val result = viewModel.state.first()
         Assert.assertTrue(result is MainState.MessageData)
         Assert.assertEquals(messageExpected, (result as MainState.MessageData).message)
+    }
+
+    @Test
+    fun `getListHouse success should set state to HouseData`() = runTest {
+        val listHouseExpected = listOf(
+            House(
+                listImage = listOf(),
+                title = "Test title for list house",
+                price = "Test price for list house",
+                address = "Test address for list house",
+                overview = "Test overview for list house",
+            )
+        )
+        `when`(houseInteractor.getListHouse()).thenReturn(flowOf(AppResult.Success(listHouseExpected)))
+
+        viewModel.setEvent(MainEvent.LIST_HOUSE)
+
+        val result = viewModel.state.first()
+        Assert.assertTrue(result is MainState.HouseData)
+        Assert.assertEquals(listHouseExpected, (result as MainState.HouseData).listHouse)
     }
 
 }
