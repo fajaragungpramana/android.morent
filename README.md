@@ -5,7 +5,9 @@ App for user rent house in `Android`
 ## Tech Information
 - Kotlin
 - ViewBinding
+- Coil
 - Hilt
+- Coroutines
 - Clean Architecture
 - Modularization
 - MVVM Pattern
