@@ -2,24 +2,15 @@ package com.github.fajaragungpramana.morent.module.main
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.fajaragungpramana.morent.core.app.AppResult
-import com.github.fajaragungpramana.morent.core.data.remote.user.FakeUserSource
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserRepositoryImpl
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserServiceImpl
 import com.github.fajaragungpramana.morent.core.domain.user.UserInteractor
 import com.github.fajaragungpramana.morent.core.domain.user.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -29,8 +20,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
