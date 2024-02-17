@@ -20,6 +20,7 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         viewModel.setEvent(MainEvent.USER)
+        viewModel.setEvent(MainEvent.LIST_HOUSE)
     }
 
     override fun onStateObserver() {
@@ -27,6 +28,8 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
             viewModel.state.collectLatest {
                 when (it) {
                     is MainState.UserData -> Log.d("FFFF", "${it.user}")
+                    is MainState.HouseData -> Log.d("FFFF", "${it.listHouse}")
+
                     is MainState.MessageData -> Log.d("FFFF", "")
                 }
             }

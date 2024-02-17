@@ -3,6 +3,7 @@ package com.github.fajaragungpramana.morent.module.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.fajaragungpramana.morent.core.app.AppResult
+import com.github.fajaragungpramana.morent.core.domain.house.HouseUseCase
 import com.github.fajaragungpramana.morent.core.domain.user.UserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -14,7 +15,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val userUseCase: UserUseCase) : ViewModel() {
+class MainViewModel @Inject constructor(
+    private val userUseCase: UserUseCase,
+    private val houseUseCase: HouseUseCase
+) : ViewModel() {
 
     private val _state by lazy { Channel<MainState>() }
     val state: Flow<MainState>
@@ -23,6 +27,7 @@ class MainViewModel @Inject constructor(private val userUseCase: UserUseCase) : 
     fun setEvent(event: MainEvent) {
         when (event) {
             MainEvent.USER -> getUser()
+            MainEvent.LIST_HOUSE -> getListHouse()
         }
     }
 
@@ -30,6 +35,15 @@ class MainViewModel @Inject constructor(private val userUseCase: UserUseCase) : 
         userUseCase.getUser().collectLatest {
             when (it) {
                 is AppResult.Success -> _state.send(MainState.UserData(it.data))
+                is AppResult.Error -> _state.send(MainState.MessageData(it.message))
+            }
+        }
+    }
+
+    private fun getListHouse(): Job = viewModelScope.launch {
+        houseUseCase.getListHouse().collectLatest {
+            when (it) {
+                is AppResult.Success -> _state.send(MainState.HouseData(it.data))
                 is AppResult.Error -> _state.send(MainState.MessageData(it.message))
             }
         }
