@@ -2,4 +2,10 @@
 plugins {
     id(Plugin.APPLICATION) version Version.GRADLE apply false
     id(Plugin.KOTLIN) version Version.KOTLIN apply false
+    id(Plugin.HILT) version Version.HILT apply false
+}
+buildscript {
+    dependencies {
+        classpath(Classpath.HILT)
+    }
 }

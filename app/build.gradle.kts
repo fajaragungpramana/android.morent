@@ -1,6 +1,8 @@
 plugins {
     id(Plugin.APPLICATION)
     id(Plugin.KOTLIN)
+    id(Plugin.KOTLIN_KAPT)
+    id(Plugin.HILT)
 }
 
 android {
@@ -45,6 +47,21 @@ android {
 dependencies {
 
     implementation(project(":common"))
+    implementation(project(":core"))
     implementation(project(":widget"))
 
+    implementation(Dependency.AndroidX.ACTIVITY_KTX)
+    implementation(Dependency.Common.COIL)
+
+    implementation(Dependency.Google.HILT)
+    kapt(Dependency.Google.HILT_COMPILER)
+
+    testImplementation(Dependency.AndroidX.CORE_TESTING)
+    testImplementation(Dependency.Mockito.MOCKITO_CORE)
+    testImplementation(Dependency.Mockito.MOCKITO_INLINE)
+    testImplementation(Dependency.JetBrains.COROUTINE_TEST)
+}
+
+kapt {
+    correctErrorTypes = true
 }
