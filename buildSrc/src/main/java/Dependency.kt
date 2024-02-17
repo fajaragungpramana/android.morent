@@ -9,6 +9,8 @@ object Dependency {
 
     object Google {
         const val MATERIAL = "com.google.android.material:material:1.11.0"
+        const val HILT = "com.google.dagger:hilt-android:${Version.HILT}"
+        const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Version.HILT}"
     }
 
     object JetBrains {

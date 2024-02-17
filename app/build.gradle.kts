@@ -1,6 +1,8 @@
 plugins {
     id(Plugin.APPLICATION)
     id(Plugin.KOTLIN)
+    id(Plugin.KOTLIN_KAPT)
+    id(Plugin.HILT)
 }
 
 android {
@@ -50,4 +52,11 @@ dependencies {
 
     implementation(Dependency.AndroidX.VIEW_MODEL)
 
+    implementation(Dependency.Google.HILT)
+    kapt(Dependency.Google.HILT_COMPILER)
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
