@@ -3,11 +3,16 @@
 App for user rent house in `Android`
 
 ## Tech Information
+Development :
 - Kotlin
 - ViewBinding
 - Coil
 - Hilt
 - Coroutines
+- Unit Test
+- UI Automation Test
+
+Design :
 - Clean Architecture
 - Modularization
 - MVVM Pattern
