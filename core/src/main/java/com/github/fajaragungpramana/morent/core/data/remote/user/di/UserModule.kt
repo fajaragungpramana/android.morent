@@ -15,10 +15,10 @@ import dagger.hilt.components.SingletonComponent
 object UserModule {
 
     @Provides
-    fun provideUserDataSource(): IUserDataSource = UserDataSource(FakeUserData)
+    fun provideDataSource(): IUserDataSource = UserDataSource(FakeUserData)
 
     @Provides
-    fun provideUserRepository(userService: IUserDataSource): IUserRepository =
+    fun provideRepository(userService: IUserDataSource): IUserRepository =
         UserRepository(userService)
 
 }

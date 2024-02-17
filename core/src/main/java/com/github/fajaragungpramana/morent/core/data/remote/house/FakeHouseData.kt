@@ -8,7 +8,7 @@ object FakeHouseData {
         get() = listOf(
             HouseResponse(
                 id = 1,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/720x420-crop/primary_property/project/1833/1697340198_background_1833.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1833/1697340214_background_1833.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1833/1697340236_background_1833.jpg?noWatermark"
@@ -20,7 +20,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 2,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1861/1702952954_background_1861.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1861/1702953284_background_1861.jpg?noWatermark",
                 ),
@@ -31,7 +31,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 3,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3396/1700820859_background_3396.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3396/1700820867_background_3396.jpg?noWatermark",
                 ),
@@ -42,7 +42,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 4,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3298/1689325384_background_3298.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3298/1689325459_background_3298.jpg?noWatermark",
                 ),
@@ -53,7 +53,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 5,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/2592/1695191889_background_2592.png?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/2592/1694421436_background_2592.jpg?noWatermark",
                 ),
@@ -64,7 +64,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 6,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3344/1702978864_background_3344.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3344/1695961216_background_3344.jpg?noWatermark",
                 ),
@@ -75,7 +75,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 7,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3423/1704440728_background_3423.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3423/1704440558_background_3423.jpg?noWatermark",
                 ),
@@ -86,7 +86,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 8,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3448/1707292687_background_3448.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3448/1707292694_background_3448.jpg?noWatermark",
                 ),
@@ -97,7 +97,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 9,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1686/1659496068_background_1686.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/1686/1659497526_background_1686.jpg?noWatermark",
                 ),
@@ -108,7 +108,7 @@ object FakeHouseData {
             ),
             HouseResponse(
                 id = 10,
-                listImages = listOf(
+                listImage = listOf(
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3336/1694585961_background_3336.jpg?noWatermark",
                     "https://picture.rumah123.com/r123/1080x720-fit/primary_property/project/3336/1694585955_background_3336.jpg?noWatermark",
                 ),

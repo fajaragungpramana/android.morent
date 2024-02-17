@@ -11,16 +11,14 @@ import javax.inject.Inject
 class UserRepository @Inject constructor(private val userService: IUserDataSource) :
     IUserRepository {
 
-    override suspend fun getUser(): Flow<AppResult<UserResponse>> {
+    override suspend fun getUser(): Flow<AppResult<UserResponse>> = channelFlow {
         val response = userService.getUser()
-        return channelFlow {
-            send(
-                if (response != null)
-                    AppResult.Success(response)
-                else
-                    AppResult.Error("User data is null.")
-            )
-        }.flowOn(Dispatchers.IO)
-    }
+        send(
+            if (response != null)
+                AppResult.Success(response)
+            else
+                AppResult.Error("User data is null.")
+        )
+    }.flowOn(Dispatchers.IO)
 
 }
