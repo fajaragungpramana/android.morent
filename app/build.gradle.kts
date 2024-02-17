@@ -1,18 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugin.APPLICATION)
+    id(Plugin.KOTLIN)
 }
 
 android {
     namespace = "com.github.fajaragungpramana.morent"
-    compileSdk = 34
+    compileSdk = Version.TARGET_SDK
 
     defaultConfig {
         applicationId = "com.github.fajaragungpramana.morent"
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Version.MIN_SDK
+        targetSdk = Version.TARGET_SDK
+        versionCode = Version.VERSION_CODE
+        versionName = Version.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,6 +29,9 @@ android {
             applicationIdSuffix = ".debug"
             isDebuggable = true
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
