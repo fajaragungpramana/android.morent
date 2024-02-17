@@ -20,6 +20,8 @@ abstract class AppActivity<VB : ViewBinding> : AppCompatActivity() {
         if (!::_viewBinding.isInitialized)
             _viewBinding = onViewBinding()
 
+        setContentView(viewBinding.root)
+
         onCreated(savedInstanceState)
 
         if (this is AppState) onStateObserver()
