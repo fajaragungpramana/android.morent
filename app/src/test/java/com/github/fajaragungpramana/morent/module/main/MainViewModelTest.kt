@@ -55,7 +55,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `getUser success should set data to UserData`() = runTest {
+    fun `getUser success should set state to UserData`() = runTest {
         val userExpected = User(
             avatar = "https://avatars.githubusercontent.com/u/47925662?s=400&u=e15d06caa4f49c9427a080c02f03b86f250f8a90&v=4",
             name = "Fajar Agung Pramana",
@@ -69,6 +69,18 @@ class MainViewModelTest {
         val result = viewModel.state.first()
         Assert.assertTrue(result is MainState.UserData)
         Assert.assertEquals(userExpected, (result as MainState.UserData).user)
+    }
+
+    @Test
+    fun `getUser error should set state to MessageData`() = runTest {
+        val messageExpected = "User is null"
+        `when`(userInteractor.getUser()).thenReturn(flowOf(AppResult.Error(messageExpected)))
+
+        viewModel.setEvent(MainEvent.USER)
+
+        val result = viewModel.state.first()
+        Assert.assertTrue(result is MainState.MessageData)
+        Assert.assertEquals(messageExpected, (result as MainState.MessageData).message)
     }
 
 }
