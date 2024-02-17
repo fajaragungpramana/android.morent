@@ -34,6 +34,6 @@ android {
 
 dependencies {
 
-
+    api(Dependency.JetBrains.COROUTINE)
 
 }

@@ -45,6 +45,9 @@ android {
 dependencies {
 
     implementation(project(":common"))
+    implementation(project(":core"))
     implementation(project(":widget"))
+
+    implementation(Dependency.AndroidX.VIEW_MODEL)
 
 }
