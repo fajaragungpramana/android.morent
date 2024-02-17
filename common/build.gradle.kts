@@ -1,18 +1,14 @@
 plugins {
-    id(Plugin.APPLICATION)
+    id(Plugin.LIBRARY)
     id(Plugin.KOTLIN)
 }
 
 android {
-    namespace = "com.github.fajaragungpramana.morent"
+    namespace = "com.github.fajaragungpramana.morent.common"
     compileSdk = Version.TARGET_SDK
 
     defaultConfig {
-        applicationId = "com.github.fajaragungpramana.morent"
         minSdk = Version.MIN_SDK
-        targetSdk = Version.TARGET_SDK
-        versionCode = Version.VERSION_CODE
-        versionName = Version.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,10 +20,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-        debug {
-            applicationIdSuffix = ".debug"
-            isDebuggable = true
         }
     }
     buildFeatures {
@@ -44,7 +36,7 @@ android {
 
 dependencies {
 
-    implementation(project(":common"))
-    implementation(project(":widget"))
+    api(Dependency.AndroidX.APP_COMPAT)
+    api(Dependency.AndroidX.CORE_KTX)
 
 }

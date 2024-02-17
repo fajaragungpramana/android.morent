@@ -1,18 +1,14 @@
 plugins {
-    id(Plugin.APPLICATION)
+    id(Plugin.LIBRARY)
     id(Plugin.KOTLIN)
 }
 
 android {
-    namespace = "com.github.fajaragungpramana.morent"
+    namespace = "com.github.fajaragungpramana.morent.widget"
     compileSdk = Version.TARGET_SDK
 
     defaultConfig {
-        applicationId = "com.github.fajaragungpramana.morent"
         minSdk = Version.MIN_SDK
-        targetSdk = Version.TARGET_SDK
-        versionCode = Version.VERSION_CODE
-        versionName = Version.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,13 +21,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            applicationIdSuffix = ".debug"
-            isDebuggable = true
-        }
-    }
-    buildFeatures {
-        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,7 +33,7 @@ android {
 
 dependencies {
 
-    implementation(project(":common"))
-    implementation(project(":widget"))
+    api(Dependency.AndroidX.SPLASH_SCREEN)
+    api(Dependency.Google.MATERIAL)
 
 }

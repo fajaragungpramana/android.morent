@@ -4,9 +4,10 @@ App for user rent house in `Android`
 
 ## Tech Information
 - Kotlin
+- ViewBinding
+- Coil
 - Hilt
-
-Design :
+- Coroutines
 - Clean Architecture
 - Modularization
 - MVVM Pattern
@@ -18,7 +19,6 @@ To get started with this project, you will need to have the following installed 
 - Minimum Kotlin Version 1.9.22
 - Minimum Gradle Version 8.2.2
 
-# Getting Started
 To get started with this project, you will need to have the following installed on your local machine:
 - Clone the repository: git clone `https://github.com/fajaragungpramana/android.morent`
 - Open the project with AndroidStudio
