@@ -39,8 +39,6 @@ dependencies {
     implementation(Dependency.Google.HILT)
     kapt(Dependency.Google.HILT_COMPILER)
 
-    api(Dependency.JetBrains.COROUTINE)
-
 }
 
 kapt {

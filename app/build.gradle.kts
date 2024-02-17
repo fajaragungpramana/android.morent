@@ -50,7 +50,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":widget"))
 
-    implementation(Dependency.AndroidX.VIEW_MODEL)
+    implementation(Dependency.AndroidX.ACTIVITY_KTX)
 
     implementation(Dependency.Google.HILT)
     kapt(Dependency.Google.HILT_COMPILER)
