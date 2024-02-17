@@ -1,6 +1,6 @@
 package com.github.fajaragungpramana.morent.core.domain.di
 
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserRepository
+import com.github.fajaragungpramana.morent.core.data.remote.user.IUserRepository
 import com.github.fajaragungpramana.morent.core.domain.user.UserInteractor
 import com.github.fajaragungpramana.morent.core.domain.user.UserUseCase
 import dagger.Module
@@ -13,7 +13,7 @@ import dagger.hilt.components.SingletonComponent
 object DomainModule {
 
     @Provides
-    fun provideUserUseCase(userRepository: UserRepository): UserUseCase =
+    fun provideUserUseCase(userRepository: IUserRepository): UserUseCase =
         UserInteractor(userRepository)
 
 }
