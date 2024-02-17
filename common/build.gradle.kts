@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.github.fajaragungpramana.morent"
+    namespace = "com.github.fajaragungpramana.morent.common"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.github.fajaragungpramana.morent"
+        applicationId = "com.github.fajaragungpramana.morent.common"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
@@ -25,10 +25,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            applicationIdSuffix = ".debug"
-            isDebuggable = true
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -41,7 +37,7 @@ android {
 
 dependencies {
 
-    implementation(project(":common"))
-    implementation(project(":widget"))
+    api("androidx.core:core-ktx:1.12.0")
+    api("androidx.appcompat:appcompat:1.6.1")
 
 }

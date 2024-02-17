@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "MoRent"
 include(":app")
 include(":widget")
+include(":common")
