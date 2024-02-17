@@ -33,6 +33,7 @@ android {
 
 dependencies {
 
+    api(Dependency.AndroidX.SPLASH_SCREEN)
     api(Dependency.Google.MATERIAL)
 
 }
