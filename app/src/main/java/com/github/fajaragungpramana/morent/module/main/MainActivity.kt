@@ -13,6 +13,7 @@ import com.github.fajaragungpramana.morent.core.domain.user.model.User
 import com.github.fajaragungpramana.morent.databinding.ActivityMainBinding
 import com.github.fajaragungpramana.morent.module.about.AboutActivity
 import com.github.fajaragungpramana.morent.module.adapter.HouseAdapter
+import com.github.fajaragungpramana.morent.module.detail.DetailActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -58,7 +59,10 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
     }
 
     private fun initHouse() {
-        houseAdapter = HouseAdapter()
+        houseAdapter = HouseAdapter {
+            val intent = Intent(this@MainActivity, DetailActivity::class.java)
+            startActivity(intent)
+        }
         viewBinding.apply {
             rvHouse.layoutManager = LinearLayoutManager(this@MainActivity)
             rvHouse.adapter = houseAdapter
