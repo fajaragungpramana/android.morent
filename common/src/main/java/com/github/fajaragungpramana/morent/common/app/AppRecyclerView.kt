@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
 
-abstract class AppRecyclerView<VB : ViewBinding, T, VH : AppRecyclerViewHolder<T>>(private val diffUtil: DiffUtil.ItemCallback<T>) :
+abstract class AppRecyclerView<VB : ViewBinding, T, VH : AppRecyclerViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<T>) :
     ListAdapter<T, VH>(diffUtil) {
 
     private lateinit var _viewBinding: VB

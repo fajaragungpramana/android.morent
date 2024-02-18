@@ -45,7 +45,7 @@
         android:id="@+id/rv_house"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="10"
         tools:listitem="@layout/item_house" />
