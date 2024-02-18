@@ -11,6 +11,7 @@ Development :
 - Coroutines
 - Unit Test
 - UI Automation Test
+- CI Github Actions
 
 Design :
 - Clean Architecture
