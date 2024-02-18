@@ -54,6 +54,7 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
     private fun initClick() {
         viewBinding.llAboutUser.setOnClickListener {
             val intent = Intent(this@MainActivity, AboutActivity::class.java)
+            intent.putExtra("id", it.id)
             startActivity(intent)
         }
     }
