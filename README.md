@@ -29,6 +29,9 @@ To get started with this project, you will need to have the following installed 
 - Open the project with AndroidStudio
 - Build and Run project on android device or simulator
 
+## Preview
+- Android Simulator (Pixel) : [Here](https://drive.google.com/drive/folders/1GBqPKNRpw5NtH29cvG8t9ljpMVwUeyFe?usp=drive_link)
+
 ## License
 Copyright 2024 Fajar Agung Pramana
 
