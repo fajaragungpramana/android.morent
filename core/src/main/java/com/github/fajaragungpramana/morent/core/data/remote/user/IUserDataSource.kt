@@ -2,7 +2,7 @@ package com.github.fajaragungpramana.morent.core.data.remote.user
 
 import com.github.fajaragungpramana.morent.core.data.remote.user.response.UserResponse
 
-interface UserService {
+interface IUserDataSource {
 
     suspend fun getUser(): UserResponse?
 

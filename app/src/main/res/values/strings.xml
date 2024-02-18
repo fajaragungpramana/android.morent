@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoRent</string>
+    <string name="unknown">Unknown</string>
 </resources>

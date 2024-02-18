@@ -5,6 +5,7 @@ object Dependency {
         const val CORE_KTX = "androidx.core:core-ktx:1.12.0"
         const val SPLASH_SCREEN = "androidx.core:core-splashscreen:1.0.1"
         const val ACTIVITY_KTX = "androidx.activity:activity-ktx:1.8.2"
+        const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.3.2"
 
         const val CORE_TESTING = "androidx.arch.core:core-testing:2.2.0"
     }

@@ -3,9 +3,9 @@ package com.github.fajaragungpramana.morent.core.data.remote.user
 import com.github.fajaragungpramana.morent.core.data.remote.user.response.UserResponse
 import javax.inject.Inject
 
-class UserServiceImpl @Inject constructor(private val fakeUserSource: FakeUserSource) :
-    UserService {
+class UserDataSource @Inject constructor(private val fakeUserData: FakeUserData) :
+    IUserDataSource {
 
-    override suspend fun getUser(): UserResponse = fakeUserSource.data
+    override suspend fun getUser(): UserResponse = fakeUserData.data
 
 }

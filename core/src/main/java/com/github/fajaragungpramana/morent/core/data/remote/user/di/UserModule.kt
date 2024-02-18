@@ -1,10 +1,10 @@
 package com.github.fajaragungpramana.morent.core.data.remote.user.di
 
-import com.github.fajaragungpramana.morent.core.data.remote.user.FakeUserSource
+import com.github.fajaragungpramana.morent.core.data.remote.user.FakeUserData
+import com.github.fajaragungpramana.morent.core.data.remote.user.IUserRepository
 import com.github.fajaragungpramana.morent.core.data.remote.user.UserRepository
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserRepositoryImpl
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserService
-import com.github.fajaragungpramana.morent.core.data.remote.user.UserServiceImpl
+import com.github.fajaragungpramana.morent.core.data.remote.user.IUserDataSource
+import com.github.fajaragungpramana.morent.core.data.remote.user.UserDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,10 +15,10 @@ import dagger.hilt.components.SingletonComponent
 object UserModule {
 
     @Provides
-    fun provideUserService(): UserService = UserServiceImpl(FakeUserSource)
+    fun provideDataSource(): IUserDataSource = UserDataSource(FakeUserData)
 
     @Provides
-    fun provideUserRepository(userService: UserService): UserRepository =
-        UserRepositoryImpl(userService)
+    fun provideRepository(userService: IUserDataSource): IUserRepository =
+        UserRepository(userService)
 
 }
