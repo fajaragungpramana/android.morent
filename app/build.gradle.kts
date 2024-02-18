@@ -56,6 +56,11 @@ dependencies {
     implementation(Dependency.Google.HILT)
     kapt(Dependency.Google.HILT_COMPILER)
 
+    androidTestImplementation(Dependency.AndroidX.UI_AUTOMATOR)
+    androidTestImplementation(Dependency.AndroidX.TEST_CORE_KTX)
+    androidTestImplementation(Dependency.AndroidX.RUNNER)
+    androidTestImplementation(Dependency.Google.TRUTH)
+
     testImplementation(Dependency.AndroidX.CORE_TESTING)
     testImplementation(Dependency.Mockito.MOCKITO_CORE)
     testImplementation(Dependency.Mockito.MOCKITO_INLINE)

@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
-        android:id="@+id/ll_about_user"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/dimen_16dp"
-        android:paddingVertical="@dimen/dimen_8dp">
+        android:background="@null"
+        app:elevation="0dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/aiv_user_avatar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/ic_launcher_background" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtv_user_name"
-            style="@style/TextBold"
-            android:layout_width="0dp"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimen_16dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/text_20sp"
-            tools:text="@string/unknown" />
+            app:layout_scrollFlags="scroll|enterAlways|snap">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_navigate_next" />
+            <LinearLayout
+                android:id="@+id/ll_about_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aiv_user_avatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtv_user_name"
+                    style="@style/TextBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_16dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_20sp"
+                    tools:text="@string/unknown" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_navigate_next" />
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_house"
@@ -47,7 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="10"
         tools:listitem="@layout/item_house" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
