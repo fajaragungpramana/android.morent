@@ -15,7 +15,8 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/mtl_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways|snap" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
