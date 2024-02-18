@@ -36,6 +36,8 @@ android {
 
 dependencies {
 
+    implementation(Dependency.AndroidX.RECYCLER_VIEW)
+
     implementation(Dependency.Google.HILT)
     kapt(Dependency.Google.HILT_COMPILER)
 
