@@ -38,5 +38,6 @@ dependencies {
 
     api(Dependency.AndroidX.APP_COMPAT)
     api(Dependency.AndroidX.CORE_KTX)
+    api(Dependency.AndroidX.RECYCLER_VIEW)
 
 }
