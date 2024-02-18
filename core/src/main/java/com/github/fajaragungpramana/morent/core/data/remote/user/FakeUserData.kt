@@ -2,7 +2,7 @@ package com.github.fajaragungpramana.morent.core.data.remote.user
 
 import com.github.fajaragungpramana.morent.core.data.remote.user.response.UserResponse
 
-object FakeUserSource {
+object FakeUserData {
 
     val data: UserResponse
         get() = UserResponse(
