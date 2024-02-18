@@ -6,4 +6,6 @@ interface IHouseDataSource {
 
     suspend fun getListHouse(): List<HouseResponse>
 
+    suspend fun getHouse(id: Int): HouseResponse?
+
 }

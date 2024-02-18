@@ -8,4 +8,6 @@ interface HouseUseCase {
 
     suspend fun getListHouse(): Flow<AppResult<List<House>>>
 
+    suspend fun getHouse(id: Int): Flow<AppResult<House>>
+
 }
