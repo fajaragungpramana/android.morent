@@ -1,7 +1,7 @@
 package com.github.fajaragungpramana.morent.module.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +11,9 @@ import com.github.fajaragungpramana.morent.common.app.AppActivity
 import com.github.fajaragungpramana.morent.common.contract.AppState
 import com.github.fajaragungpramana.morent.core.domain.user.model.User
 import com.github.fajaragungpramana.morent.databinding.ActivityMainBinding
+import com.github.fajaragungpramana.morent.module.about.AboutActivity
 import com.github.fajaragungpramana.morent.module.adapter.HouseAdapter
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -26,6 +28,7 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
     override fun onViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     override fun onCreated(savedInstanceState: Bundle?) {
+        initClick()
         initHouse()
 
         viewModel.setEvent(MainEvent.USER)
@@ -39,9 +42,18 @@ class MainActivity : AppActivity<ActivityMainBinding>(), AppState {
                     is MainState.UserData -> setUserView(it.user)
                     is MainState.HouseData -> houseAdapter.submitList(it.listHouse)
 
-                    is MainState.MessageData -> Log.d("FFFF", "")
+                    is MainState.MessageData ->
+                        Snackbar.make(viewBinding.root, it.message.orEmpty(), Snackbar.LENGTH_LONG)
+                            .show()
                 }
             }
+        }
+    }
+
+    private fun initClick() {
+        viewBinding.llAboutUser.setOnClickListener {
+            val intent = Intent(this@MainActivity, AboutActivity::class.java)
+            startActivity(intent)
         }
     }
 

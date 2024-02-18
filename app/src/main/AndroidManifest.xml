@@ -29,6 +29,8 @@
 
         <activity android:name=".module.main.MainActivity" />
 
+        <activity android:name=".module.about.AboutActivity" />
+
     </application>
 
 </manifest>
