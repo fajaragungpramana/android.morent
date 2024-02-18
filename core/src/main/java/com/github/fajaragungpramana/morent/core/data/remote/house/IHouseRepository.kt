@@ -8,4 +8,6 @@ interface IHouseRepository {
 
     suspend fun getListHouse(): Flow<AppResult<List<HouseResponse>>>
 
+    suspend fun getHouse(id: Int): Flow<AppResult<HouseResponse>>
+
 }

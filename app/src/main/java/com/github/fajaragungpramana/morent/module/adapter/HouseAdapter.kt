@@ -10,7 +10,7 @@ import com.github.fajaragungpramana.morent.common.app.AppRecyclerViewHolder
 import com.github.fajaragungpramana.morent.core.domain.house.model.House
 import com.github.fajaragungpramana.morent.databinding.ItemHouseBinding
 
-class HouseAdapter :
+class HouseAdapter(private val onItemClick: (House) -> Unit) :
     AppRecyclerView<ItemHouseBinding, House, HouseAdapter.ViewHolder>(House.diffUtil) {
 
     override fun onViewBinding(viewGroup: ViewGroup): ItemHouseBinding =
@@ -21,12 +21,16 @@ class HouseAdapter :
     inner class ViewHolder(itemView: View) : AppRecyclerViewHolder<House>(itemView) {
 
         override fun bindItem(item: House, position: Int) {
-            viewBinding.aivHouseImage.load(item.listImage?.first()) {
-                transformations(RoundedCornersTransformation(16F))
+            viewBinding.apply {
+                aivHouseImage.load(item.listImage?.first()) {
+                    transformations(RoundedCornersTransformation(16F))
+                }
+                mtvHouseName.text = item.title
+                mtvHouseAddress.text = item.address
+                mtvHousePrice.text = item.price
+
+                root.setOnClickListener { onItemClick.invoke(item) }
             }
-            viewBinding.mtvHouseName.text = item.title
-            viewBinding.mtvHouseAddress.text = item.address
-            viewBinding.mtvHousePrice.text = item.price
         }
 
     }

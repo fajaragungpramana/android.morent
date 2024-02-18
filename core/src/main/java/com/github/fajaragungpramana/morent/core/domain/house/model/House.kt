@@ -40,6 +40,15 @@ data class House(
             return data
         }
 
+        fun mapToObject(response: HouseResponse) = House(
+            id = response.id,
+            listImage = response.listImage,
+            title = response.title,
+            price = response.price,
+            address = response.address,
+            overview = response.overview
+        )
+
     }
 
 }

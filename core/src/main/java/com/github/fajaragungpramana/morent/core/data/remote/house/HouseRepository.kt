@@ -21,4 +21,14 @@ class HouseRepository @Inject constructor(private val iHouseDataSource: IHouseDa
         )
     }.flowOn(Dispatchers.IO)
 
+    override suspend fun getHouse(id: Int): Flow<AppResult<HouseResponse>> = channelFlow {
+        val response = iHouseDataSource.getHouse(id)
+        send(
+            if (response != null)
+                AppResult.Success(response)
+            else
+                AppResult.Error("House with provide id not found.")
+        )
+    }.flowOn(Dispatchers.IO)
+
 }
