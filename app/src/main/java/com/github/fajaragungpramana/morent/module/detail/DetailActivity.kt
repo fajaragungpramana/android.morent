@@ -27,7 +27,11 @@ class DetailActivity : AppActivity<ActivityDetailBinding>(), AppState {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         initView()
+        initClick()
         initHouseImage()
+
+        val id = intent.getIntExtra("id", 1)
+        viewModel.setEvent(DetailEvent.House(id))
     }
 
     override fun onStateObserver() {
@@ -45,6 +49,14 @@ class DetailActivity : AppActivity<ActivityDetailBinding>(), AppState {
 
     private fun initView() {
         setSupportActionBar(viewBinding.mtlDetail)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setDisplayShowTitleEnabled(false)
+        }
+    }
+
+    private fun initClick() {
+        viewBinding.mtlDetail.setNavigationOnClickListener { finish() }
     }
 
     private fun initHouseImage() {
@@ -57,6 +69,8 @@ class DetailActivity : AppActivity<ActivityDetailBinding>(), AppState {
     }
 
     private fun setHouse(house: House) {
+        imageAdapter.submitList(house.listImage)
+
         viewBinding.apply {
             mtvHouseName.text = house.title
             mtvHouseAddress.text = house.address
