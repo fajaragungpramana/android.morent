@@ -27,4 +27,17 @@ class HouseInteractor @Inject constructor(private val iHouseRepository: IHouseRe
         }
     }.flowOn(Dispatchers.IO)
 
+    override suspend fun getHouse(id: Int): Flow<AppResult<House>> = channelFlow<AppResult<House>> {
+        iHouseRepository.getHouse(id).collectLatest {
+            when (it) {
+                is AppResult.Success -> send(
+                    AppResult.Success(House.mapToObject(it.data))
+                )
+                is AppResult.Error -> send(
+                    AppResult.Error(it.message)
+                )
+            }
+        }
+    }.flowOn(Dispatchers.IO)
+
 }

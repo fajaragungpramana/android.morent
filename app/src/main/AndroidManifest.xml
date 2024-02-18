@@ -31,6 +31,8 @@
 
         <activity android:name=".module.about.AboutActivity" />
 
+        <activity android:name=".module.detail.DetailActivity" />
+
     </application>
 
 </manifest>
