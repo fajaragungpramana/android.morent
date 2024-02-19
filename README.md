@@ -8,9 +8,9 @@ Development :
 - ViewBinding
 - Coil
 - Hilt
-- Coroutines
-- Unit Test
-- UI Automation Test
+- Coroutines [Channel, Flow]
+- Unit Test [Mockito]
+- UI Automation Test [Espresso, Automator]
 - CI Github Actions
 
 Design :
