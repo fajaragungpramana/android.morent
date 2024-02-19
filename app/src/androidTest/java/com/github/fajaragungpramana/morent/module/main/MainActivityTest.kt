@@ -8,6 +8,8 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,8 +20,12 @@ import com.github.fajaragungpramana.morent.module.adapter.HouseAdapter
 @LargeTest
 class MainActivityTest {
 
+    private lateinit var uiDevice: UiDevice
+
     @Before
     fun setUp() {
+        uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+
         ActivityScenario.launch(MainActivity::class.java)
     }
 
@@ -43,6 +49,12 @@ class MainActivityTest {
 
         Thread.sleep(3000)
 
+        uiDevice.setOrientationLandscape()
+
+        Thread.sleep(3000)
+
+        uiDevice.setOrientationPortrait()
+
         Espresso.pressBack()
     }
 
@@ -52,6 +64,12 @@ class MainActivityTest {
             .perform(RecyclerViewActions.actionOnItemAtPosition<HouseAdapter.ViewHolder>(9, ViewActions.click()))
 
         Thread.sleep(3000)
+
+        uiDevice.setOrientationLandscape()
+
+        Thread.sleep(3000)
+
+        uiDevice.setOrientationPortrait()
 
         Espresso.pressBack()
     }
