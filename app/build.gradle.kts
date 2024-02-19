@@ -56,10 +56,11 @@ dependencies {
     implementation(Dependency.Google.HILT)
     kapt(Dependency.Google.HILT_COMPILER)
 
-    androidTestImplementation(Dependency.AndroidX.UI_AUTOMATOR)
+    androidTestImplementation(Dependency.AndroidX.ESPRESSO_CORE)
+    androidTestImplementation(Dependency.AndroidX.ESPRESSO_CONTRIB)
     androidTestImplementation(Dependency.AndroidX.TEST_CORE_KTX)
     androidTestImplementation(Dependency.AndroidX.RUNNER)
-    androidTestImplementation(Dependency.Google.TRUTH)
+    androidTestImplementation(Dependency.AndroidX.RULES)
 
     testImplementation(Dependency.AndroidX.CORE_TESTING)
     testImplementation(Dependency.Mockito.MOCKITO_CORE)
