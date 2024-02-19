@@ -7,9 +7,11 @@ object Dependency {
         const val ACTIVITY_KTX = "androidx.activity:activity-ktx:1.8.2"
         const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.3.2"
 
-        const val UI_AUTOMATOR = "androidx.test.uiautomator:uiautomator:2.3.0-rc01"
+        const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.5.1"
+        const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:3.5.1"
         const val TEST_CORE_KTX = "androidx.test:core-ktx:1.5.0"
         const val RUNNER = "androidx.test:runner:1.5.2"
+        const val RULES = "androidx.test:rules:1.5.0"
 
         const val CORE_TESTING = "androidx.arch.core:core-testing:2.2.0"
     }
@@ -22,8 +24,6 @@ object Dependency {
         const val MATERIAL = "com.google.android.material:material:1.11.0"
         const val HILT = "com.google.dagger:hilt-android:${Version.HILT}"
         const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Version.HILT}"
-
-        const val TRUTH = "com.google.truth:truth:1.4.1"
     }
 
     object JetBrains {
