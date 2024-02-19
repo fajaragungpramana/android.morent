@@ -63,7 +63,13 @@ class MainActivityTest {
         Espresso.onView(ViewMatchers.withId(R.id.rv_house))
             .perform(RecyclerViewActions.actionOnItemAtPosition<HouseAdapter.ViewHolder>(9, ViewActions.click()))
 
+        Espresso.onView(ViewMatchers.withId(R.id.menu_share))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+            .perform(ViewActions.click())
+
         Thread.sleep(3000)
+
+        uiDevice.pressBack()
 
         uiDevice.setOrientationLandscape()
 
