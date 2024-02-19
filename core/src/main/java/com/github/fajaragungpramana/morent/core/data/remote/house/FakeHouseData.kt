@@ -16,7 +16,7 @@ object FakeHouseData {
                 title = "Metland Cibitung",
                 price = "Rp656 Juta - 963 Juta",
                 address = "Cibitung, Bekasi",
-                overview = "Miliki Rumah 2 Lantai di Cibitung, Bekasi dengan harga terjangkau dan kemudahan akses transportasi, terdapat Stasiun Metland Telaga Murni yang berada dalam kawasan perumahan, serta fasilitas terbaik lainnya"
+                overview = "Miliki Rumah 2 Lantai di Cibitung, Bekasi dengan harga terjangkau dan kemudahan akses transportasi, terdapat Stasiun Metland Telaga Murni yang berada dalam kawasan perumahan, serta fasilitas terbaik lainnya",
             ),
             HouseResponse(
                 id = 2,
