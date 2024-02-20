@@ -2,7 +2,7 @@ package com.github.fajaragungpramana.morent.module.main
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.fajaragungpramana.morent.core.app.AppResult
-import com.github.fajaragungpramana.morent.core.domain.house.HouseInteractor
+import com.github.fajaragungpramana.morent.core.domain.house.HouseUseCase
 import com.github.fajaragungpramana.morent.core.domain.house.model.House
 import com.github.fajaragungpramana.morent.core.domain.user.UserInteractor
 import com.github.fajaragungpramana.morent.core.domain.user.model.User
@@ -37,7 +37,7 @@ class MainViewModelTest {
     private lateinit var userInteractor: UserInteractor
 
     @Mock
-    private lateinit var houseInteractor: HouseInteractor
+    private lateinit var houseUseCase: HouseUseCase
 
     private lateinit var viewModel: MainViewModel
 
@@ -46,7 +46,7 @@ class MainViewModelTest {
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        viewModel = MainViewModel(userInteractor, houseInteractor)
+        viewModel = MainViewModel(userInteractor, houseUseCase)
     }
 
     @Before
@@ -99,7 +99,7 @@ class MainViewModelTest {
                 overview = "Test overview for list house",
             )
         )
-        `when`(houseInteractor.getListHouse()).thenReturn(flowOf(AppResult.Success(listHouseExpected)))
+        `when`(houseUseCase.getListHouse()).thenReturn(flowOf(AppResult.Success(listHouseExpected)))
 
         viewModel.setEvent(MainEvent.LIST_HOUSE)
 

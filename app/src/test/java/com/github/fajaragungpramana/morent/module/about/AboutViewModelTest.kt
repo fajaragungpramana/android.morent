@@ -2,7 +2,7 @@ package com.github.fajaragungpramana.morent.module.about
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.fajaragungpramana.morent.core.app.AppResult
-import com.github.fajaragungpramana.morent.core.domain.user.UserInteractor
+import com.github.fajaragungpramana.morent.core.domain.user.UserUseCase
 import com.github.fajaragungpramana.morent.core.domain.user.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,7 +32,7 @@ class AboutViewModelTest {
     val instantTaskExecutor = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var userInteractor: UserInteractor
+    private lateinit var userUseCase: UserUseCase
 
     private lateinit var viewModel: AboutViewModel
 
@@ -41,7 +41,7 @@ class AboutViewModelTest {
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        viewModel = AboutViewModel(userInteractor)
+        viewModel = AboutViewModel(userUseCase)
     }
 
     @Before
@@ -62,7 +62,7 @@ class AboutViewModelTest {
             email = "fajar.agungpramana77@gmail.com",
             about = "Experienced mobile developer with a strong track record in app development using Kotlin, Swift and Flutter. Over the past 3 years, I've successfully contributed to various projects, specializing in enhancing mobile apps. Proficient in translating complex requirements into clean, bug-free code, I excel in collaborating with cross-functional teams to deliver high-quality mobile apps."
         )
-        Mockito.`when`(userInteractor.getUser()).thenReturn(flowOf(AppResult.Success(userExpected)))
+        Mockito.`when`(userUseCase.getUser()).thenReturn(flowOf(AppResult.Success(userExpected)))
 
         viewModel.setEvent(AboutEvent.USER)
 
@@ -74,7 +74,7 @@ class AboutViewModelTest {
     @Test
     fun `getUser error should set state to MessageData`() = runTest {
         val messageExpected = "User is null"
-        Mockito.`when`(userInteractor.getUser()).thenReturn(flowOf(AppResult.Error(messageExpected)))
+        Mockito.`when`(userUseCase.getUser()).thenReturn(flowOf(AppResult.Error(messageExpected)))
 
         viewModel.setEvent(AboutEvent.USER)
 

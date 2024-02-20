@@ -2,7 +2,7 @@ package com.github.fajaragungpramana.morent.module.detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.fajaragungpramana.morent.core.app.AppResult
-import com.github.fajaragungpramana.morent.core.domain.house.HouseInteractor
+import com.github.fajaragungpramana.morent.core.domain.house.HouseUseCase
 import com.github.fajaragungpramana.morent.core.domain.house.model.House
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,7 +32,7 @@ class DetailViewModelTest {
     val instantTaskExecutor = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var houseInteractor: HouseInteractor
+    private lateinit var houseUseCase: HouseUseCase
 
     private lateinit var viewModel: DetailViewModel
 
@@ -41,7 +41,7 @@ class DetailViewModelTest {
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(true)
-        viewModel = DetailViewModel(houseInteractor)
+        viewModel = DetailViewModel(houseUseCase)
     }
 
     @Before
@@ -70,7 +70,7 @@ class DetailViewModelTest {
         )
 
         val houseId = houseExpected.id ?: 0
-        Mockito.`when`(houseInteractor.getHouse(houseId)).thenReturn(flowOf(AppResult.Success(houseExpected)))
+        Mockito.`when`(houseUseCase.getHouse(houseId)).thenReturn(flowOf(AppResult.Success(houseExpected)))
 
         viewModel.setEvent(DetailEvent.House(houseId))
 
@@ -82,7 +82,7 @@ class DetailViewModelTest {
     @Test
     fun `getHouse error should set state to MessageData`() = runTest {
         val messageExpected = "User is null"
-        Mockito.`when`(houseInteractor.getHouse(1))
+        Mockito.`when`(houseUseCase.getHouse(1))
             .thenReturn(flowOf(AppResult.Error(messageExpected)))
 
         viewModel.setEvent(DetailEvent.House(1))
